@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>More or Less" game</title>
+</head>
+<body>
+	<p>
+		Your might to find hidden number. <br> We will tell you the measures after every your attempt.<br>
+		<b>Good luck! Have fun</b>
+		<br>
+		Here you can input the measures and the number will be hidden between them!
+	</p>
+	<form method="Post" action="StartGame">
+		<table>
+			<tr>
+				<td>Enter min value:</td>
+				<td><input type="number" name="minValue" min="1" value="1"></td>
+			</tr>
+			<tr>
+				<td>Enter max value:</td>
+				<td><input type="number" name="maxValue" max="99" value="99"></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="GO"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
