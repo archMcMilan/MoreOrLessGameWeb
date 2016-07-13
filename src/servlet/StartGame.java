@@ -31,6 +31,7 @@ public class StartGame extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getSession().invalidate();
 		HttpSession gameSession = request.getSession();
 		int minValue=new Integer(request.getParameter(View.MIN_VALUE));
 		int maxValue=new Integer(request.getParameter(View.MAX_VALUE));
