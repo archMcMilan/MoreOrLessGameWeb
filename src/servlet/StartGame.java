@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Model;
 import view.View;
@@ -30,9 +31,13 @@ public class StartGame extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int minValue=(int) request.getAttribute(View.MIN_VALUE);
-		int maxValue=(int) request.getAttribute(View.MAX_VALUE);
-		Model model=new Model(minValue,maxValue);
+		HttpSession gameSession = request.getSession();
+		int minValue=new Integer(request.getParameter(View.MIN_VALUE));
+		int maxValue=new Integer(request.getParameter(View.MAX_VALUE));
+		Model game=new Model(minValue,maxValue);
+		gameSession.setAttribute(View.MODEL, game);
+		response.sendRedirect(View.REDIRECT_LINK);
+		return;
 	}
 
 }
